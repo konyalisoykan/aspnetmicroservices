@@ -1,7 +1,8 @@
 1
 -- Now we can open interactive terminal for mongo
-docker run -d -p 27017:27017 --name shopping-mongo  mongo
+ 
 
+docker run -d -p 6379:6379 --name shopping-mongo  mongo
 docker exec -it shopping-mongo /bin/bash
  docker logs shopping-mongo
 

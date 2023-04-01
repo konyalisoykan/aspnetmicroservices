@@ -1,0 +1,19 @@
+docker run -d -p 27017:27017 --name aspnet-redis 
+
+1
+-- Now we can open interactive terminal for redis
+redis 
+docker exec -it aspnet-redis /bin/bash
+
+
+2
+-- After that, we are able to run redis commands. 
+Let me try with 
+
+redis-cli
+ping - PONG
+
+set key value
+get key
+set name mehmet
+get name
