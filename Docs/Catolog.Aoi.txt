@@ -1,0 +1,8 @@
+  // "ConnectionString": "mongodb://catalogdb:27017",
+  // "ConnectionString": "mongodb://localhost:27017",
+
+projeleri başatmadan önce clean et .localHost çalışacaksan ducker desktoptan image i çalıştır ki mongo db yani catalogdb ayapğa kalksın
+
+1. ifade ducker compose ,yani ducker ortaöımda çalışırken.Yabş kşnux bşr majşnada çalışıorsun
+
+2. ifade localde çalışırken   
