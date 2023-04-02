@@ -1,4 +1,4 @@
-docker run -d -p 27017:27017 --name aspnet-redis 
+docker run -d -p 6379:6379 --name aspnet-redis  redis
 
 1
 -- Now we can open interactive terminal for redis
