@@ -1,6 +1,12 @@
 using Discount.API.Repositories;
 using Discount.API.Repositories.Interfaces;
 
+using Common.Logging;
+using Discount.API.Extensions;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
+using Serilog;
+
 namespace Discount.API
 {
     public class Program
