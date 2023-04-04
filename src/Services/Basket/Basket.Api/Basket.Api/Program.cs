@@ -1,6 +1,8 @@
 using Basket.Api.Repositories.Interfaces;
 using Basket.Api.Repositories;
 using Microsoft.Extensions.Configuration;
+using HealthChecks.UI.Client;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
 namespace Basket.Api
 {
@@ -34,7 +36,15 @@ namespace Basket.Api
 
 
             app.MapControllers();
-
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+                endpoints.MapHealthChecks("/hc", new HealthCheckOptions()
+                {
+                    Predicate = _ => true,
+                    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+                });
+            });
             app.Run();
         }
     }

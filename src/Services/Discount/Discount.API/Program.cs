@@ -14,7 +14,7 @@ namespace Discount.API
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
+           
             // Add services to the container.
 
             builder.Services.AddControllers();
@@ -22,7 +22,7 @@ namespace Discount.API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddScoped<IDiscountRepository, DiscountRepository>();
-
+            builder.Host.UseSerilog();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -39,5 +39,6 @@ namespace Discount.API
 
             app.Run();
         }
+
     }
 }
