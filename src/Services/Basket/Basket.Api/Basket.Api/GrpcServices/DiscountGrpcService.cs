@@ -1,8 +1,9 @@
-﻿using Discount.Grpc.Protos;
+﻿//using Discount.Grpc.Protos;
 using System;
 using System.Threading.Tasks;
 namespace Basket.Api.GrpcServices
 {
+    /*
     public class DiscountGrpcService
     {
         private readonly DiscountProtoService.DiscountProtoServiceClient _discountProtoService;
@@ -19,4 +20,5 @@ namespace Basket.Api.GrpcServices
             return await _discountProtoService.GetDiscountAsync(discountRequest);
         }
     }
+    */
 }

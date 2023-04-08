@@ -25,7 +25,8 @@ services:
     ports:
         - "5432:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data/      
+      - postgres_data:/var/lib/postgresql/data/   
+     
   catalog.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
@@ -45,7 +46,18 @@ services:
     depends_on:
      - basketdb
 
-   
+  discount.api:
+    container_name: discount.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "DatabaseSettings:ConnectionString=Server=discountdb;Port=5432;Database=DiscountDb;User Id=admin;Password=admin1234;"
+      - "ElasticConfiguration:Uri=http://elasticsearch:9200"
+    depends_on:
+      - discountdb
+    ports:
+      - "8002:80"
+
+
   pgadmin:
     container_name: pgadmin
     environment:

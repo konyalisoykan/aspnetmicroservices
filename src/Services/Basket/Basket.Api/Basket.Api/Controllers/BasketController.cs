@@ -17,14 +17,15 @@ namespace Basket.Api.Controllers
     public class BasketController : ControllerBase
     {
         private readonly IBasketRepository _repository;
-        private readonly DiscountGrpcService _discountGrpcService;
+       // private readonly DiscountGrpcService _discountGrpcService;
         private readonly IPublishEndpoint _publishEndpoint;
         private readonly IMapper _mapper;
 
-        public BasketController(IBasketRepository repository, DiscountGrpcService discountGrpcService, IPublishEndpoint publishEndpoint, IMapper mapper)
+       // public BasketController(IBasketRepository repository, DiscountGrpcService discountGrpcService, IPublishEndpoint publishEndpoint, IMapper mapper)
+        public BasketController(IBasketRepository repository, IPublishEndpoint publishEndpoint, IMapper mapper)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
-            _discountGrpcService = discountGrpcService ?? throw new ArgumentNullException(nameof(discountGrpcService));
+           // _discountGrpcService = discountGrpcService ?? throw new ArgumentNullException(nameof(discountGrpcService));
             _publishEndpoint = publishEndpoint ?? throw new ArgumentNullException(nameof(publishEndpoint));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
@@ -44,8 +45,8 @@ namespace Basket.Api.Controllers
             // Communicate with Discount.Grpc and calculate lastest prices of products into sc
             foreach (var item in basket.Items)
             {
-                var coupon = await _discountGrpcService.GetDiscount(item.ProductName);
-                item.Price -= coupon.Amount;
+              //  var coupon = await _discountGrpcService.GetDiscount(item.ProductName);
+              //  item.Price -= coupon.Amount;
             }
 
             return Ok(await _repository.UpdateBasket(basket));

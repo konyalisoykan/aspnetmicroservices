@@ -38,14 +38,16 @@ if (app.Environment.IsDevelopment())
 app.UseAuthorization();
 
 app.MapControllers();
-
+/*
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
+    
     endpoints.MapHealthChecks("/hc", new HealthCheckOptions()
     {
         Predicate = _ => true,
         ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
     });
 });
+*/
 app.Run();
